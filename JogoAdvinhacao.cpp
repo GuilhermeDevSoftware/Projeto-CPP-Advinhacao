@@ -8,6 +8,7 @@ int main(){
 
     const int NUMERO_SECRETO = 42;
     int tentativas = 0;
+    double pontos = 1000.0;
 
     bool nao_acertou = true;
 
@@ -17,6 +18,9 @@ int main(){
         int chute;
         cout<<"Digite seu palpite: ";
         cin >> chute;
+
+        double pontos_perdidos = abs(chute - NUMERO_SECRETO) / 2.0;
+        pontos = pontos - pontos_perdidos;
 
         cout<<"Seu chute foi: " <<chute <<endl;
 
@@ -35,8 +39,12 @@ int main(){
         cout <<endl;    
     }
 
-    cout << "Fim de jogo" <<endl;
+    cout<< "Fim de jogo" <<endl;
     cout<< "Voce acertou o numero secreto em " <<tentativas<< " tentativas" <<endl;
+    cout.precision(2);
+    cout<< fixed;
+    cout<< "Sua pontuacao foi: "<<pontos<<" pontos." <<endl;
+    cout <<endl;
 
     return 0;
 }
